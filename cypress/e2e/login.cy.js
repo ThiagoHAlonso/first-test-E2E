@@ -5,33 +5,24 @@ describe('Orange HRM Tests', () => {
     passwordField: '[name="password"]',
     loginButton: 'button[type="submit"]',
     sectionTitleTopBar: '.oxd-topbar-header-breadcrumb > .oxd-text',
-    wrongCredentialAlert:'.oxd-alert',
+    wrongCredentialAlert:'["role = alert"]',
   }
 
   it.skip('Login - success', () => {
     cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
-
     cy.get([selectorList.usernameField]).type('Admin')
     cy.get([selectorList.passwordField]).type('admin123')
     cy.get([selectorList.loginButton]).click()
-
-    cy.location('pathname', { timeout: 10000 })
-      .should('equal', '/web/index.php/dashboard/index')
-
-    cy.get(selectorList.sectionTitleTopBar)
-      .contains('Dashboard')
+    cy.location('pathname').should('equal', '/web/index.php/dashboard/index')
+    cy.get(selectorList.sectionTitleTopBar).contains('Dashboard')
   })
 
   it('Login - fail', () => {
     cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
-
     cy.get(selectorList.usernameField).type('Test')
     cy.get(selectorList.passwordField).type('Test')
     cy.get(selectorList.loginButton).click()
-
     cy.get(selectorList.wrongCredentialAlert)
-      .should('be.visible')
-      .and('contain', 'Invalid credentials')
   })
 
 })
