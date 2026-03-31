@@ -1,11 +1,13 @@
+import userData from '../fixtures/users/userData.json'
+
 describe('Orange HRM Tests', () => {
 
   const selectorList = {
-    usernameField: '[name="username"]',
-    passwordField: '[name="password"]',
-    loginButton: 'button[type="submit"]',
-    sectionTitleTopBar: '.oxd-topbar-header-breadcrumb > .oxd-text',
-    wrongCredentialAlert: '[role="alert"]',
+    usernameField: "[name='username']",
+    passwordField: "[name='password']",
+    loginButton: "button[type='submit']",
+    sectionTitleTopBar: ".oxd-topbar-header-breadcrumb > .oxd-text",
+    wrongCredentialAlert: "[role='alert']",
   }
 
   const userData = {
