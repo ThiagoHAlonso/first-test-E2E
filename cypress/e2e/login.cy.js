@@ -10,17 +10,6 @@ describe('Orange HRM Tests', () => {
     wrongCredentialAlert: "[role='alert']",
   }
 
-  const userData = {
-    userSuccess: {
-      username: 'Admin',
-      password: 'admin123'
-    },
-    userFail: {
-      username: 'teste',
-      password: 'teste'
-    }
-  }
-
   it('Login - success', () => {
     cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
 
