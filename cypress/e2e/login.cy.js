@@ -9,7 +9,9 @@ describe('Orange HRM Tests', () => {
     sectionTitleTopBar: ".oxd-topbar-header-breadcrumb > .oxd-text",
     dashboardGrid: ".orangehrm-dashboard-grid",
     wrongCredentialAlert: "[role='alert']",
-    myInfoButton:'[href="/web/index.php/pim/viewMyDetails"]'
+    myInfoButton:'[href="/web/index.php/pim/viewMyDetails"]',
+    fistNameField: "[name='firstName']",
+    lastNameField: "[name='lastName']",
   }
 
   it.only('User Info Update - success', () => {
