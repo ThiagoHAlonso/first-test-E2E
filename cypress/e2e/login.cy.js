@@ -11,7 +11,9 @@ describe('Orange HRM Tests', () => {
     wrongCredentialAlert: "[role='alert']",
     myInfoButton:'[href="/web/index.php/pim/viewMyDetails"]',
     fistNameField: "[name='firstName']",
+    midNameField:"[name = 'midName",
     lastNameField: "[name='lastName']",
+    nickNameField:".oxd-input--active",
   }
 
   it.only('User Info Update - success', () => {
@@ -24,8 +26,10 @@ describe('Orange HRM Tests', () => {
     cy.location('pathname').should('equal', '/web/index.php/dashboard/index')
     cy.get(selectorList.dashboardGrid)
     cy.get(selectorList.myInfoButton)
-    
-    //cy.visit('/pim/viewPersonalDetails/empNumber/7')
+     //cy.visit('/pim/viewPersonalDetails/empNumber/7')
+    cy.get(selectorList.nickNameField).type('NicknameTest') 
+
+
   })
   it('Login - fail', () => {
     cy.visit('/auth/login')
