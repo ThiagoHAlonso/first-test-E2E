@@ -11,7 +11,6 @@ describe('Orange HRM Tests', () => {
     wrongCredentialAlert: "[role='alert']",
     myInfoButton:'[href="/web/index.php/pim/viewMyDetails"]',
     fistNameField: "[name='firstName']",
-    midNameField:"[name = 'midName",
     lastNameField: "[name='lastName']",
     nickNameField:".oxd-input--active",
   }
@@ -27,7 +26,7 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorList.dashboardGrid)
     cy.get(selectorList.myInfoButton)
      //cy.visit('/pim/viewPersonalDetails/empNumber/7')
-    cy.get(selectorList.nickNameField).type('NicknameTest') 
+    cy.get(selectorList.nickNameField).eq(4).type('NicknameTest') 
 
 
   })
