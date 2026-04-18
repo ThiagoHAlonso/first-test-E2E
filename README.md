@@ -13,13 +13,21 @@ Desenvolver boas práticas de escrita de testes com Cypress
 🗂️ Estrutura do Projeto
 first-test-E2E/
 ├── cypress/
+
 │   ├── e2e/
+
 │   │   └── orangeHRM.cy.js       # Arquivo principal com os testes
+
 │   └── fixtures/
+
 │       └── users/
+
 │           └── userData.json      # Dados de usuário para os testes
+
 ├── cypress.config.js              # Configuração base do Cypress (baseUrl, etc.)
+
 ├── package.json
+
 └── README.md
 
 ✅ Cenários Automatizados
