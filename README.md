@@ -11,7 +11,9 @@ Desenvolver boas práticas de escrita de testes com Cypress
 
 
 🗂️ Estrutura do Projeto
+
 first-test-E2E/
+
 ├── cypress/
 
 │   ├── e2e/
