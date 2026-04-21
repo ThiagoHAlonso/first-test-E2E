@@ -40,9 +40,9 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorList.genericField).eq(8).clear().type('ssnNumberTest')  
     cy.get(selectorList.genericField).eq(9).clear().type('sinNumberTest') 
     cy.get(selectorList.genericField).eq(9).clear().type('sinNumberTest')
-    cy.get(selectorList.dateCloseButton).eq(0).click()
+    //cy.get(selectorList.dateCloseButton).eq(0).click()
+    cy.pause()
     cy.get('body').should('contain','Succesfully Updated')
-    cy.pause
     cy.get('.oxd-toast-close')
   })
   it('Login - fail', () => {
