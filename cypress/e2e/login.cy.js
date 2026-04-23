@@ -6,99 +6,53 @@ describe('Orange HRM Tests', () => {
     usernameField: "[name='username']",
     passwordField: "[name='password']",
     loginButton: "button[type='submit']",
+    sectionTitleTopBar: ".oxd-topbar-header-breadcrumb > .oxd-text",
+    dashboardGrid: ".orangehrm-dashboard-grid",
     wrongCredentialAlert: "[role='alert']",
-
-    myInfoButton: '[href="/web/index.php/pim/viewMyDetails"]',
-
-    firstNameField: "[name='firstName']",
+    myInfoButton:'[href="/web/index.php/pim/viewMyDetails"]',
+    fistNameField: "[name='firstName']",
     lastNameField: "[name='lastName']",
-
-    nicknameField: ".oxd-input--active", // vamos usar com cuidado
-    dateField: "[placeholder='yyyy-dd-mm']",
-
-    submitButton: "button[type='submit']",
-    toastMessage: ".oxd-toast-content",
-    toastClose: ".oxd-toast-close"
+    genericField:".oxd-input--active",
+    dateField:"[placeholder='yyyy-dd-mm']",
+    dateCloseButton:'.oxd-layout-context',
+    submitButton:"[type='submit']"
   }
 
   it.only('User Info Update - success', () => {
-
     cy.visit('/auth/login')
 
-    // login
     cy.get(selectorList.usernameField).type(userData.userSuccess.username)
     cy.get(selectorList.passwordField).type(userData.userSuccess.password)
     cy.get(selectorList.loginButton).click()
 
-    cy.location('pathname').should('include', '/dashboard')
+    cy.location('pathname').should('equal', '/web/index.php/dashboard/index')
+    //cy.get(selectorList.dashboardGrid)
+    cy.get(selectorList.myInfoButton)
+    cy.visit('/pim/viewPersonalDetails/empNumber/7')
+    cy.get(selectorList.fistNameField).type('FirstNameTest')
+    cy.get(selectorList.lastNameField).type('LastNameTest')
+    cy.get(selectorList.genericField).eq(3).clear().type('NicknameTest') 
+    cy.get(selectorList.genericField).eq(4).clear().type('Employee')
+    cy.get(selectorList.genericField).eq(5).clear().type('OtherIdTest') 
+    cy.get(selectorList.genericField).eq(6).clear().type('Drivers License Number Test')
+    cy.get(selectorList.genericField).eq(7).clear().type('2012-12-12')
+    cy.get(selectorList.dateCloseButton).click('.oxd-layout-context') 
+    cy.get(selectorList.genericField).eq(8).clear().type('ssnNumberTest')  
+    cy.get(selectorList.genericField).eq(9).clear().type('sinNumberTest') 
+    cy.get(selectorList.genericField).eq(9).clear().type('sinNumberTest')
+    cy.get(selectorList.dateCloseButton).eq(0).click()
+    cy.pause()
+    cy.get('body').should('contain','Succesfully Updated')
 
-    // navegação
-    cy.visit('/web/index.php/pim/viewPersonalDetails/empNumber/7')
-
-    // nome
-    cy.get(selectorList.firstNameField)
-      .clear()
-      .type('FirstNameTest')
-
-    cy.get(selectorList.lastNameField)
-      .clear()
-      .type('LastNameTest')
-
-    // ⚠️ ainda usando eq, mas com contexto controlado
-    cy.get(selectorList.nicknameField).eq(3)
-      .clear()
-      .type('NicknameTest')
-
-    cy.get(selectorList.nicknameField).eq(4)
-      .clear()
-      .type('Employee')
-
-    cy.get(selectorList.nicknameField).eq(5)
-      .clear()
-      .type('OtherIdTest')
-
-    cy.get(selectorList.nicknameField).eq(6)
-      .clear()
-      .type('Drivers License Number Test')
-
-    // ✅ CORREÇÃO DO DATEPICKER
-    cy.get(selectorList.dateField).click()
-
-    // opção mais estável: escolher a data no calendário
-    cy.contains('.oxd-calendar-date', '10').click()
-
-    // outros campos
-    cy.get(selectorList.nicknameField).eq(8)
-      .clear()
-      .type('ssnNumberTest')
-
-    cy.get(selectorList.nicknameField).eq(9)
-      .clear()
-      .type('sinNumberTest')
-
-    // salvar (pega o botão correto)
-    cy.get(selectorList.submitButton).first().click()
-
-    // validação
-    cy.get(selectorList.toastMessage)
-      .should('be.visible')
-      .and('contain', 'Successfully Updated')
-
-    cy.get(selectorList.toastClose).click()
+    cy.get('.oxd-toast-close')
   })
-
-
   it('Login - fail', () => {
-
     cy.visit('/auth/login')
 
     cy.get(selectorList.usernameField).type(userData.userFail.username)
     cy.get(selectorList.passwordField).type(userData.userFail.password)
     cy.get(selectorList.loginButton).click()
-
-    cy.get(selectorList.wrongCredentialAlert)
-      .should('be.visible')
-      .and('contain', 'Invalid credentials')
+    cy.get(selectorList.wrongCredentialAlert).should('be.visible').and('contain', 'Invalid credentials')
   })
 
 })
