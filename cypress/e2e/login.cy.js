@@ -16,7 +16,7 @@ describe('Orange HRM Tests', () => {
     dateField:"[placeholder='yyyy-dd-mm']",
     dateCloseButton:'.--close',
     submitButton:"[type='submit']",
-    nationalityButto: ""
+    nationalityButton: ""
   }
 
   it.only('User Info Update - success', () => {
@@ -41,6 +41,8 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorList.genericField).eq(8).clear().type('ssnNumberTest')  
     cy.get(selectorList.genericField).eq(9).clear().type('sinNumberTest') 
     cy.get(selectorList.genericField).eq(9).clear().type('sinNumberTest')
+    cy.get('.oxd-select-text--arrow')
+  
 
     //cy.get(selectorList.dateCloseButton).eq(0).click()
     //cy.get('body').should('contain','Succesfully Updated')
