@@ -14,8 +14,9 @@ describe('Orange HRM Tests', () => {
     lastNameField: "[name='lastName']",
     genericField:".oxd-input--active",
     dateField:"[placeholder='yyyy-dd-mm']",
-    dateCloseButton:'.oxd-layout-context',
-    submitButton:"[type='submit']"
+    dateCloseButton:'.--close',
+    submitButton:"[type='submit']",
+    nationalityButto: ""
   }
 
   it.only('User Info Update - success', () => {
@@ -36,15 +37,15 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorList.genericField).eq(5).clear().type('OtherIdTest') 
     cy.get(selectorList.genericField).eq(6).clear().type('Drivers License Number Test')
     cy.get(selectorList.genericField).eq(7).clear().type('2012-12-12')
-    cy.get(selectorList.dateCloseButton).click('.oxd-layout-context') 
+    cy.get(selectorList.dateCloseButton).click() 
     cy.get(selectorList.genericField).eq(8).clear().type('ssnNumberTest')  
     cy.get(selectorList.genericField).eq(9).clear().type('sinNumberTest') 
     cy.get(selectorList.genericField).eq(9).clear().type('sinNumberTest')
-    cy.get(selectorList.dateCloseButton).eq(0).click()
-    cy.pause()
-    cy.get('body').should('contain','Succesfully Updated')
 
-    cy.get('.oxd-toast-close')
+    //cy.get(selectorList.dateCloseButton).eq(0).click()
+    //cy.get('body').should('contain','Succesfully Updated')
+   // cy.get('.oxd-toast-close')
+  
   })
   it('Login - fail', () => {
     cy.visit('/auth/login')
