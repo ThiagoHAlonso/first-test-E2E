@@ -43,6 +43,9 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorList.nationalitiesBarButton).click()
     cy.get(selectorList.nationalityButton).click()
     
+    cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text > .oxd-select-text--after > .oxd-icon').click()
+    cy.get('.oxd-select-dropdown > :nth-child(3)').click()
+
 
   
     // cy.get(selectorList.submitButton).eq(0).click({force:true})
