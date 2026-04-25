@@ -32,13 +32,14 @@ describe('Orange HRM Tests', () => {
     cy.visit('/pim/viewPersonalDetails/empNumber/7')
     cy.get(selectorList.fistNameField).type('FirstNameTest')
     cy.get(selectorList.lastNameField).type('LastNameTest')
-    cy.get(selectorList.genericField).eq(3).clear().type('NicknameTest') 
+    cy.get(selectorList.genericField).eq(3).clear().type('NickTest') 
     cy.get(selectorList.genericField).eq(4).clear().type('Employee')
     cy.get(selectorList.genericField).eq(5).clear().type('OtherIdTest') 
     cy.get(selectorList.genericField).eq(6).clear().type('Drivers License Number Test')
-    cy.get(selectorList.genericField).eq(7).clear({force: true}).type('2025-03-10') 
+    cy.get(selectorList.genericField).eq(7).clear().type('2027-03-10').click()
     cy.get(selectorList.dateCloseButton).eq(0).click()
-    cy.get(':nth-child(5) > :nth-child(1) > :nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text')
+    cy.get(':nth-child(5) > :nth-child(1) > :nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text').click()
+    cy.get(':nth-child(167)').click()
   
 
   
