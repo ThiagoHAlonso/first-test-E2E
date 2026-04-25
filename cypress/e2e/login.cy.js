@@ -36,14 +36,14 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorList.genericField).eq(4).clear().type('Employee')
     cy.get(selectorList.genericField).eq(5).clear().type('OtherIdTest') 
     cy.get(selectorList.genericField).eq(6).clear().type('Drivers License Number Test')
-    cy.get(selectorList.genericField).eq(7).then(($el) => {$el[0].value = '2012-12-12'})
-    //cy.get(selectorList.genericField).eq(8).clear().type('ssnNumberTest')  
-    //cy.get(selectorList.genericField).eq(9).clear().type('sinNumberTest') 
+    cy.get(selectorList.genericField).eq(7).clear({force: true}).type('2025-03-10') 
+    cy.get(selectorList.dateCloseButton).eq(0).click()
+    cy.get(':nth-child(5) > :nth-child(1) > :nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text')
+  
+
+  
     // cy.get(selectorList.submitButton).eq(0).click({force:true})
-    cy.get(':nth-child(5) > :nth-child(1) > :nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text > .oxd-select-text-input').click
     
-    
-    //cy.get('.oxd-select-text--arrow')
   
 
     //cy.get(selectorList.dateCloseButton).eq(0).click()
