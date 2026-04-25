@@ -16,7 +16,8 @@ describe('Orange HRM Tests', () => {
     dateField:"[placeholder='yyyy-dd-mm']",
     dateCloseButton:".--clear",
     submitButton:"[type='submit']",
-    nationalityButton: ""
+    nationalitiesBarButton:':nth-child(5) > :nth-child(1) > :nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text',
+    nationalityButton: ":nth-child(167)"
   }
 
   it.only('User Info Update - success', () => {
@@ -36,11 +37,12 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorList.genericField).eq(4).clear().type('Employee')
     cy.get(selectorList.genericField).eq(5).clear().type('OtherIdTest') 
     cy.get(selectorList.genericField).eq(6).clear().type('Drivers License Number Test')
-    cy.get(selectorList.genericField).eq(7).clear().type('2027-03-10').click()
+    cy.get(selectorList.genericField).eq(7).clear({force: true}).type('2027-03-10').click()
     cy.get(selectorList.dateCloseButton).eq(0).click()
-    cy.get(':nth-child(5) > :nth-child(1) > :nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text').click()
-    cy.get(':nth-child(167)').click()
-  
+   
+    cy.get(selectorList.nationalitiesBarButton).click()
+    cy.get(selectorList.nationalityButton).click()
+    
 
   
     // cy.get(selectorList.submitButton).eq(0).click({force:true})
