@@ -19,7 +19,9 @@ describe('Orange HRM Tests', () => {
     dateCloseButton:".--close",
     submitButton:"[type='submit']",
     nationalitiesBarButton:':nth-child(5) > :nth-child(1) > :nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text',
-    nationalityButton: ":nth-child(167)"
+    nationalityButton: ":nth-child(167)",
+    MaritialStatsButton: ":nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text > .oxd-select-text--after > .oxd-icon",
+    statsRelationShipSelector:".oxd-select-dropdown > :nth-child(3)",
   }
 
   it.only('User Info Update - success', () => {
@@ -48,8 +50,9 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorList.nationalitiesBarButton).click()
     cy.get(selectorList.nationalityButton).click()
     
-    cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text > .oxd-select-text--after > .oxd-icon').click()
-    cy.get('.oxd-select-dropdown > :nth-child(3)').click()
+    cy.get(selectorList.MaritialStatsButton).click()
+    
+    cy.get(selectorList.statsRelationShipSelector).click()
 
 
   
