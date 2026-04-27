@@ -15,7 +15,8 @@ describe('Orange HRM Tests', () => {
     lastNameField: "[name='lastName']",
     genericField:".oxd-input--active",
     dateField:"[placeholder='yyyy-dd-mm']",
-    dateCloseButton:".--clear",
+    calendarFieldButton:':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-date-wrapper > .oxd-date-input > .oxd-input',
+    dateCloseButton:".--close",
     submitButton:"[type='submit']",
     nationalitiesBarButton:':nth-child(5) > :nth-child(1) > :nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text',
     nationalityButton: ":nth-child(167)"
@@ -40,9 +41,9 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorList.genericField).eq(5).clear().type('OtherIdTest') 
     cy.get(selectorList.genericField).eq(6).clear().type('Drivers License Number Test')
    
-    cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-date-wrapper > .oxd-date-input > .oxd-input').clear().type(2012-12-12)
+    cy.get(selectorList.calendarFieldButton).clear().type('2012-12-12')
    
-    cy.get(selectorList.dateCloseButton).eq(0).click()
+    cy.get(selectorList.dateCloseButton).click()
    
     cy.get(selectorList.nationalitiesBarButton).click()
     cy.get(selectorList.nationalityButton).click()
