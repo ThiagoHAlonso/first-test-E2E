@@ -25,7 +25,7 @@ describe('Orange HRM Tests', () => {
   }
 
   it.only('User Info Update - success', () => {
-    cy.visit('/auth/login')
+    cy.visit('/auth/login') 
 
     cy.get(selectorList.usernameField).type(userData.userSuccess.username)
     cy.get(selectorList.passwordField).type(userData.userSuccess.password)
@@ -55,12 +55,6 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorList.statsRelationShipSelector).click()
 
 
-  
-    // cy.get(selectorList.submitButton).eq(0).click({force:true})
-    
-  
-
-    //cy.get(selectorList.dateCloseButton).eq(0).click()
     //cy.get('body').should('contain','Succesfully Updated')
    // cy.get('.oxd-toast-close')
   
