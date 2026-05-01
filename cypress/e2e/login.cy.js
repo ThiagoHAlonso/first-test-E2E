@@ -39,7 +39,7 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorList.midNameField).clear().type('MidNameTest')
     cy.get(selectorList.lastNameField).clear().type('LastNameTest')
     cy.get(selectorList.genericField).eq(3).clear().type('NickTest') 
-    cy.get(selectorList.genericField).eq(4).clear().type('Employee')
+    cy.get(selectorList.genericField).eq(4).clear().type('test')
     cy.get(selectorList.genericField).eq(5).clear().type('OtherIdTest') 
     cy.get(selectorList.genericField).eq(6).clear().type('Drivers License Number Test')
    
@@ -54,7 +54,13 @@ describe('Orange HRM Tests', () => {
     
     cy.get(selectorList.statsRelationShipSelector).click()
 
+    cy.get(':nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-date-wrapper > .oxd-date-input > .oxd-input').clear().type('1963-12-12')
+    cy.get('.--close').click()
+    cy.get(':nth-child(1) > :nth-child(2) > .oxd-radio-wrapper > label > .oxd-radio-input').click()
+    cy.get(':nth-child(1) > .oxd-form > .oxd-form-actions > .oxd-button').click()
 
+
+ 
     //cy.get('body').should('contain','Succesfully Updated')
    // cy.get('.oxd-toast-close')
   
