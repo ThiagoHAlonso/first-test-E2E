@@ -22,6 +22,9 @@ describe('Orange HRM Tests', () => {
     nationalityButton: ":nth-child(167)",
     MaritialStatsButton: ":nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text > .oxd-select-text--after > .oxd-icon",
     statsRelationShipSelector:".oxd-select-dropdown > :nth-child(3)",
+    dateBirthField: "nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-date-wrapper > .oxd-date-input > .oxd-input",
+    genderRadioBoxButton: ":nth-child(1) > :nth-child(2) > .oxd-radio-wrapper > label > .oxd-radio-input",
+    savedButton: ":nth-child(1) > .oxd-form > .oxd-form-actions > .oxd-button",
   }
 
   it.only('User Info Update - success', () => {
@@ -54,10 +57,11 @@ describe('Orange HRM Tests', () => {
     
     cy.get(selectorList.statsRelationShipSelector).click()
 
-    cy.get(':nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-date-wrapper > .oxd-date-input > .oxd-input').clear().type('1963-12-12')
-    cy.get('.--close').click()
-    cy.get(':nth-child(1) > :nth-child(2) > .oxd-radio-wrapper > label > .oxd-radio-input').click()
-    cy.get(':nth-child(1) > .oxd-form > .oxd-form-actions > .oxd-button').click()
+    cy.get(selectorList.dateBirthField).clear().type('1963-12-12')
+    cy.get(selectorList.dateCloseButton).click()
+   
+    cy.get(selectorList.genderRadioBoxButton).click()
+    cy.get(selectorList.savedButton).click()
 
 
  
