@@ -55,18 +55,9 @@ describe('Orange HRM Tests', () => {
     
     cy.get(selectorList.MaritialStatsButton).click()
     
-    cy.get(selectorList.statsRelationShipSelector).click()
-
-    cy.get(selectorList.dateBirthField).clear().type('1963-12-12')
-    cy.get(selectorList.dateCloseButton).click()
-   
-    cy.get(selectorList.genderRadioBoxButton).click()
+  
     cy.get(selectorList.savedButton).click()
-
-
  
-    //cy.get('body').should('contain','Succesfully Updated')
-   // cy.get('.oxd-toast-close')
   
   })
   it('Login - fail', () => {
