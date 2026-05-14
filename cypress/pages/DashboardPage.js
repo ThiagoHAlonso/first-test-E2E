@@ -1,24 +1,23 @@
-class dashboardPage{
-    selectorList(){
+class DashboardPage {
+
+    selectorList() {
         const selectors = {
-            fistNameField: "[name='firstName']",
-            midNameField:"[name='middleName']",
-            lastNameField: "[name='lastName']",
-            genericField:".oxd-input--active",
-            dateField:"[placeholder='yyyy-dd-mm']",
-            calendarFieldButton:':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-date-wrapper > .oxd-date-input > .oxd-input',
-            dateCloseButton:".--close",
-            submitButton:"[type='submit']",
-            nationalitiesBarButton:':nth-child(5) > :nth-child(1) > :nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text',
-            nationalityButton: ":nth-child(167)",
-            MaritialStatsButton: ":nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text > .oxd-select-text--after > .oxd-icon",
-            statsRelationShipSelector:".oxd-select-dropdown > :nth-child(3)",
-            dateBirthField: "nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-date-wrapper > .oxd-date-input > .oxd-input",
-            genderRadioBoxButton: ":nth-child(1) > :nth-child(2) > .oxd-radio-wrapper > label > .oxd-radio-input",
-            savedButton: ":nth-child(1) > .oxd-form > .oxd-form-actions > .oxd-button",
+            dashboardGrid: ".orangehrm-dashboard-grid",
         }
+
         return selectors
     }
-    
+
+    checkDashboardPage() {
+
+        cy.location('pathname')
+            .should('equal', '/web/index.php/dashboard/index')
+
+        cy.get(this.selectorList().dashboardGrid)
+            .should('be.visible')
+
+    }
+
 }
-export default dashboardPage
+
+export default DashboardPage
