@@ -27,12 +27,9 @@ describe('Orange HRM Tests', () => {
   }
 
   it.only('User Info Update - success', () => {
-    loginPage.acessLoginPage()
-   /*  cy.visit('/auth/login') 
-
-    cy.get(selectorList.usernameField).type(userData.userSuccess.username)
-    cy.get(selectorList.passwordField).type(userData.userSuccess.password)
-    cy.get(selectorList.loginButton).click()
+    loginPage.accessLoginPage()
+    loginPage.loginWithAnyUser(userData.userSuccess.username, userData.userSuccess.password)
+  
 
     cy.location('pathname').should('equal', '/web/index.php/dashboard/index')
     //cy.get(selectorList.dashboardGrid)
@@ -58,7 +55,6 @@ describe('Orange HRM Tests', () => {
   
     cy.get(selectorList.savedButton).click()
  
- */
   
   })
   it('Login - fail', () => {

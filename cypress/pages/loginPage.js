@@ -11,7 +11,7 @@ class LoginPage {
         return selectors
     }
 
-    acessLoginPage() {
+    accessLoginPage() {
         cy.visit('/auth/login')
     }
 
